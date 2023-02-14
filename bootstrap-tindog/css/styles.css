@@ -113,3 +113,22 @@ p {
   width: 15%;
   margin: 1.25rem 1.25rem 3.125rem;
 }
+
+/* Pricing Section */
+#pricing {
+  padding: 6.25rem;
+  text-align: center;
+}
+
+.card {
+  height: 100%;
+}
+
+.card-footer {
+  background-color: inherit;
+  border: none;
+}
+
+.pricing-col {
+  padding: 3% 5%;
+}
