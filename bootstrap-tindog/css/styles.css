@@ -1,38 +1,41 @@
 body {
   font-family: 'Montserrat', sans-serif;
+  text-align: center;
 }
 
-h1 {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 3.5rem;
-  line-height: 1.5;
-  font-weight: 900;
-}
-
-h2 {
-  font-size: 3rem;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-weight: bold;
-  line-height: 1.5;
-}
-
-h3 {
-  font-weight: 700;
 }
 
 p {
   color: #8f8f8f;
 }
 
-/* Title Section */
-#title {
-  background-color: #ff4c68;
-  color: #ffffff;
-  text-align: left;
+/* Headings */
+.big-heading {
+  font-size: 3.5rem;
+  line-height: 1.5;
+  font-weight: 900;
 }
 
-.container-fluid {
-  padding: 3% 15% 7%;
+.section-heading {
+  font-size: 3rem;
+  line-height: 1.5;
 }
+
+/* Containers */
+.container-fluid {
+  padding: 7% 15%;
+}
+
+
+
+
 
 /* Navigation Bar */
 .navbar {
@@ -54,21 +57,30 @@ p {
   font-size: 1.25rem;
 }
 
-/* Download Buttons */
+/* Title Section */
+#title {
+  background-color: #ff4c68;
+  color: #ffffff;
+  text-align: left;
+}
+
+#title .container-fluid {
+  padding: 3% 15% 7%;
+}
+
 .download-btn {
   margin: 5% 3% 5% 0;
 }
 
-/* Title Image */
 .title-img-container {
   position: relative;
 }
 
 .iphone-img {
-  width: 60%;
+  width: 50%;
   transform: rotate(25deg);
   position: absolute;
-  right: 30%;
+  right: 24%;
 }
 
 @media (max-width: 1028px) {
@@ -88,14 +100,16 @@ p {
 
 /* Feature Section */
 #features {
-  padding: 7% 15%;
   background-color: #ffffff;
   position: relative;
 }
 
 .feat-box {
   padding: 3rem;
-  text-align: center;
+}
+
+.feat-title {
+  font-size: 1.5rem;
 }
 
 .feat-icon {
@@ -110,9 +124,13 @@ p {
 
 /* Testimonials Section */
 #testimonials {
-  text-align: center;
   background-color: #ef8172;
   color: #ffffff;
+}
+
+.testimonial-text {
+  font-size: 3rem;
+  line-height: 1.5;
 }
 
 .testimonial-img {
@@ -121,14 +139,9 @@ p {
   margin: 1.25rem;
 }
 
-.carousel-item {
-  padding: 5% 15%;
-}
-
 /* Press Section */
 #press {
   background-color: #ef8172;
-  text-align: center;
   padding-bottom: 3%;
 }
 
@@ -139,8 +152,7 @@ p {
 
 /* Pricing Section */
 #pricing {
-  padding: 7% 12%;
-  text-align: center;
+  padding: 6.25rem;
 }
 
 .card {
@@ -152,6 +164,11 @@ p {
   border: none;
 }
 
+.price-text {
+  font-size: 3rem;
+  line-height: 1.5;
+}
+
 .pricing-col {
   padding: 3% 5%;
 }
@@ -160,24 +177,9 @@ p {
 #cta {
   background-color: #ff4c68;
   color: #ffffff;
-  padding: 7% 15%;
-  text-align: center;
-}
-
-.cta-text {
-  font-size: 3.5rem;
-  font-weight: 900;
-  line-height: 1.5;
 }
 
 /* Footer Section */
-#footer {
-  text-align: center;
-  padding: 7% 15%;
-}
-
-
-
 .social-icon {
   margin: 1.25rem 0.625rem;
 }
