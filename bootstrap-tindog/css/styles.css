@@ -25,13 +25,13 @@ p {
 
 /* Title Section */
 #title {
-  padding: 5% 15%;
   background-color: #ff4c68;
   color: #ffffff;
+  text-align: left;
 }
 
 .container-fluid {
-  padding: 3% 15%;
+  padding: 3% 15% 7%;
 }
 
 /* Navigation Bar */
@@ -60,14 +60,37 @@ p {
 }
 
 /* Title Image */
+.title-img-container {
+  position: relative;
+}
+
 .iphone-img {
   width: 60%;
   transform: rotate(25deg);
+  position: absolute;
+  right: 30%;
+}
+
+@media (max-width: 1028px) {
+  #title {
+    text-align: center;
+  }
+
+  .title-img-container {
+    position: static;
+  }
+
+  .iphone-img {
+    position: static;
+    transform: rotate(0);
+  }
 }
 
 /* Feature Section */
 #features {
   padding: 5% 15%;
+  background-color: #ffffff;
+  position: relative;
 }
 
 .feat-box {
