@@ -88,7 +88,7 @@ p {
 
 /* Feature Section */
 #features {
-  padding: 5% 15%;
+  padding: 7% 15%;
   background-color: #ffffff;
   position: relative;
 }
@@ -139,7 +139,7 @@ p {
 
 /* Pricing Section */
 #pricing {
-  padding: 6.25rem;
+  padding: 7% 12%;
   text-align: center;
 }
 
@@ -154,4 +154,30 @@ p {
 
 .pricing-col {
   padding: 3% 5%;
+}
+
+/* Call To Action Section */
+#cta {
+  background-color: #ff4c68;
+  color: #ffffff;
+  padding: 7% 15%;
+  text-align: center;
+}
+
+.cta-text {
+  font-size: 3.5rem;
+  font-weight: 900;
+  line-height: 1.5;
+}
+
+/* Footer Section */
+#footer {
+  text-align: center;
+  padding: 7% 15%;
+}
+
+
+
+.social-icon {
+  margin: 1.25rem 0.625rem;
 }
