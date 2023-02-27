@@ -4,12 +4,14 @@ var drums = document.querySelectorAll('.drum');
 for (var i = 0; i < drums.length; i++) {
   drums[i].addEventListener('click', function () {
     makeSound(this.innerHTML);
+    buttonAnimation(this.innerHTML);
   });
 }
 
 // Detecting keyboard event (adding to the entire page)
 document.addEventListener('keydown', function (e) {
   makeSound(e.key);
+  buttonAnimation(e.key);
 });
 
 function makeSound(key) {
@@ -38,4 +40,13 @@ function makeSound(key) {
     default:
       console.log(this.innerHTML);
   }
+}
+
+function buttonAnimation(key) {
+  var activeBtn = document.querySelector("." + key);
+  activeBtn.classList.add("pressed");
+  
+  setTimeout(() => {
+    activeBtn.classList.remove("pressed")
+  }, 100);
 }
