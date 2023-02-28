@@ -7,7 +7,28 @@ function playSound(name) {
   new Audio('sounds/' + name + '.mp3').play();
 }
 
+// TODO: figure out how to repeat the game sequence back to us after each turn
+function playCurrentSequence() {
+  if (gamePattern.length > 0) {
+    console.log(gamePattern);
+    var count = 0;
+    while (count < gamePattern.length) {
+      var color = gamePattern[count];
+      setTimeout(function() {
+        $('#' + color)
+          .fadeIn(100)
+          .fadeOut(100)
+          .fadeIn(100);
+        playSound(color);
+      }, 1000)
+      count++;
+    }
+  }
+  
+}
+
 function nextSequence() {
+  //playCurrentSequence();
   userClickedPattern = [];
   level++;
   $('#level-title').text('Level ' + level);
@@ -32,9 +53,6 @@ function animatePress(currentColor) {
 }
 
 function checkAnswer(currentLevel) {
-  console.log(currentLevel);
-  console.log(gamePattern);
-  console.log(userClickedPattern);
   if (userClickedPattern[currentLevel] !== gamePattern[currentLevel]) {
     playSound('wrong');
     $('#level-title').text('Game over. Press any key to play again.');
