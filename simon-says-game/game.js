@@ -7,32 +7,28 @@ function playSound(name) {
   new Audio('sounds/' + name + '.mp3').play();
 }
 
-// TODO: figure out how to repeat the game sequence back to us after each turn
-function playCurrentSequence() {
-  if (gamePattern.length > 0) {
-    console.log(gamePattern);
-    var count = 0;
-    while (count < gamePattern.length) {
-      var color = gamePattern[count];
-      setTimeout(function() {
-        $('#' + color)
-          .fadeIn(100)
-          .fadeOut(100)
-          .fadeIn(100);
-        playSound(color);
-      }, 1000)
-      count++;
-    }
-  }
-  
+function sleep() {
+  return new Promise(r => setTimeout(r, 1000))
 }
 
-function nextSequence() {
-  //playCurrentSequence();
+async function nextSequence() {
   userClickedPattern = [];
   level++;
   $('#level-title').text('Level ' + level);
-  var randomNum = Math.floor(Math.random() * 3);
+
+  // plays current pattern back to user before next sequence is generated
+  for (var i = 0; i < gamePattern.length; i++) {
+    console.log(gamePattern);
+    var color = gamePattern[i];
+    $('#' + color)
+        .fadeIn(100)
+        .fadeOut(100)
+        .fadeIn(100);
+    playSound(color);
+    await sleep();
+  }
+
+  var randomNum = Math.floor(Math.random() * 4);
   var randomChosenColor = buttonColors[randomNum];
   gamePattern.push(randomChosenColor);
 
