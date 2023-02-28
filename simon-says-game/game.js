@@ -7,8 +7,8 @@ function playSound(name) {
   new Audio('sounds/' + name + '.mp3').play();
 }
 
-function sleep() {
-  return new Promise(r => setTimeout(r, 1000))
+function sleep(ms) {
+  return new Promise((r) => setTimeout(r, ms));
 }
 
 async function nextSequence() {
@@ -18,14 +18,23 @@ async function nextSequence() {
 
   // plays current pattern back to user before next sequence is generated
   for (var i = 0; i < gamePattern.length; i++) {
-    console.log(gamePattern);
     var color = gamePattern[i];
     $('#' + color)
-        .fadeIn(100)
-        .fadeOut(100)
-        .fadeIn(100);
+      .fadeIn(100)
+      .fadeOut(100)
+      .fadeIn(100);
     playSound(color);
-    await sleep();
+    var ms = 1000;
+    
+    if (level > 12) {
+      ms = 400;
+    } else if (level > 8) {
+      ms = 600;
+    } else if (level > 4) {
+      ms = 800
+    }
+
+    await sleep(ms);
   }
 
   var randomNum = Math.floor(Math.random() * 4);
@@ -52,15 +61,16 @@ function checkAnswer(currentLevel) {
   if (userClickedPattern[currentLevel] !== gamePattern[currentLevel]) {
     playSound('wrong');
     $('#level-title').text('Game over. Press any key to play again.');
-    $("body").addClass("game-over");
+    $('body').addClass('game-over');
     setTimeout(function () {
-      $('body').removeClass("game-over");
+      $('body').removeClass('game-over');
     }, 200);
 
     gamePattern = [];
     level = 0;
   } else {
-    if (userClickedPattern.length == gamePattern.length) { // if check is to see if the user is done with recreating the sequence correctly
+    if (userClickedPattern.length == gamePattern.length) {
+      // if check is to see if the user is done with recreating the sequence correctly
       setTimeout(function () {
         nextSequence();
       }, 1000);
