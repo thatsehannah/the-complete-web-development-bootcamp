@@ -12,11 +12,15 @@ function nextSequence() {
     .fadeOut(100)
     .fadeIn(100);
 
-    new Audio("sounds/" + randomChosenColor + ".mpe").play();
+    playSound(randomChosenColor);
 }
 
 $(".btn").click(function (e) { 
   var userChosenColor = e.target.id;
   userClickedPattern.push(userChosenColor);
-  console.log(userClickedPattern);
+  playSound(userChosenColor);
 });
+
+function playSound(name) {
+  new Audio("sounds/" + name + ".mp3").play();
+}
