@@ -7,7 +7,7 @@ const app = express();
 const apiKey = process.env.API_KEY;
 
 app.get('/', (req, res) => {
-  const url = `https://api.openweathermap.org/data/2.5/weather?q=Houston&appid=${apiKey}`;
+  const url = `https://api.openweathermap.org/data/2.5/weather?q=Houston&appid=${apiKey}&units=imperial`;
 
   https.get(url, (response) => {
     response.on("data", (data) => {
@@ -16,9 +16,9 @@ app.get('/', (req, res) => {
       const description = weatherData.weather[0].description
       const icon = weatherData.weather[0].icon
       const imageURL = "http://openweathermap.org/img/wn/" + icon + "@2x.png"
-      res.write("<p>The weather is currently " + description +  ".</p>")
-      res.write("<h1>The temperature in Houston is " + temp + " degrees Celcius.</h1>")
-      res.write("<img src=" + imageURL + " alt='weather-icon'>")
+      res.write(`<p>The weather is currently ${description}.</p>`)
+      res.write(`<h1>The temperature in Houston is ${temp} degrees Fahrenheit.</h1>`)
+      res.write(`<img src=${imageURL} alt='weather-icon'>`)
       res.send()
     })
   })
